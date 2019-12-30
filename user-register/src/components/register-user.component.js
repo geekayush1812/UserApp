@@ -8,7 +8,7 @@ export default class registerUser extends React.Component {
     this.onChangeEmail = this.onChangeEmail.bind(this);
     this.onChangeNumber = this.onChangeNumber.bind(this);
     this.onChangePassword=this.onChangePassword.bind(this);
-
+    this.onSubmit = this.onSubmit.bind(this);
 
     this.state = {
       name: "",
@@ -38,6 +38,7 @@ export default class registerUser extends React.Component {
       password: e.target.value
     });
   }
+  
 
 
   onSubmit(e) {
@@ -57,7 +58,10 @@ export default class registerUser extends React.Component {
     } 
 
      axios.post('http://localhost:4000/users/add',newUser)
-     .then((response)=>console.log(response.data));
+     .then((response)=>{
+       document.querySelector('.alert').classList.toggle('fadeOut');
+       document.querySelector('.alert').classList.toggle('fadeIn');
+     });
 
     this.setState({
       name: "",
@@ -67,10 +71,27 @@ export default class registerUser extends React.Component {
     });
   }
 
+  onCloseSuccess(e){
+     e.preventDefault();
+       document.querySelector('.alert').classList.toggle('fadeOut');
+       document.querySelector('.alert').classList.toggle('fadeIn');
+  }
   render() {
     return (
       <div style={{ marginTop: 20 }}>
         <h3>Create new User</h3>
+        <div class="alert alert-success">
+          <a 
+          href="#" 
+          class="close"
+          data-dismiss="alert"
+          aria-label="close"
+          onClick={this.onCloseSuccess}
+          >
+            &times;
+          </a>
+          <strong>Success!</strong>
+        </div>
         <form onSubmit={this.onSubmit}>
           <div className="form-group">
             <label>Name</label>
