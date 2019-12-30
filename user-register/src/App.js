@@ -2,9 +2,9 @@ import React from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-import TodosList from "./components/todos-list.component";
-import EditTodo from "./components/edit-todo.component";
-import CreateTodo from "./components/create-todo.component";
+import showUser from "./components/show-user.component";
+import editUser from "./components/edit-user.component";
+import registerUser from "./components/register-user.component";
 
 import logo from "./logo.svg";
 
@@ -18,27 +18,27 @@ class App extends React.Component {
               <img src={logo} width="30" height="30" alt="logo" />
             </a>
             <Link to="/" className="navbar-brand">
-              MERN-Stack Todo App
+              UserApp
             </Link>
             <div className="collpase nav-collapse">
               <ul className="navbar-nav mr-auto">
                 <li className="navbar-item">
                   <Link to="/" className="nav-link">
-                    Todos
+                    Show Users
                   </Link>
                 </li>
                 <li className="navbar-item">
                   <Link to="/create" className="nav-link">
-                    Create Todo
+                    Register
                   </Link>
                 </li>
               </ul>
             </div>
           </nav>
 
-          <Route path="/" exact component={TodosList} />
-          <Route path="/edit/:id" component={EditTodo} />
-          <Route path="/create" component={CreateTodo} />
+          <Route path="/" exact component={showUser} />
+          <Route path="/edit/:id" component={editUser} />
+          <Route path="/create" component={registerUser} />
         </div>
       </Router>
     );
