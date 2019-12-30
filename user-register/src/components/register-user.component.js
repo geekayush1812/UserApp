@@ -8,7 +8,7 @@ export default class registerUser extends React.Component {
     this.onChangeEmail = this.onChangeEmail.bind(this);
     this.onChangeNumber = this.onChangeNumber.bind(this);
     this.onChangePassword=this.onChangePassword.bind(this);
-    this.onSubmit = this.onSubmit.bind(this);
+
 
     this.state = {
       name: "",
