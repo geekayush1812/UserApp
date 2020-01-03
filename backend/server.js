@@ -65,6 +65,18 @@ userRoutes.route('/update/:id').post(function(req, res) {
     });
 });
 
+userRoutes.route('/delete/:id').post(async function(req,res){
+    const id=req.params.id
+    try{
+    const user=await User.findByIdAndDelete(id)
+    console.log(user)
+    res.send(user)
+   }catch(e){
+       console.log(e)
+       res.status(404).send()
+   }
+})
+
 app.use('/users', userRoutes);
 
 app.listen(PORT, function() {

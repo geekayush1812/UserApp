@@ -65,11 +65,18 @@ export default class registerUser extends React.Component {
       number:91,
       password:''
     });
+    document.querySelector('.alert').classList.remove('hide');
+    document.querySelector('.alert').classList.add('show');
+    setTimeout(()=>{
+      document.querySelector('.alert').classList.remove('show');
+      document.querySelector('.alert').classList.add('hide');
+    },1000);
   }
 
   render() {
     return (
       <div style={{ marginTop: 20 }}>
+        <div className="alert alert-success hide" role="alert">User successfully registered</div>
         <h3>Create new User</h3>
         <form onSubmit={this.onSubmit}>
           <div className="form-group">

@@ -66,13 +66,18 @@ export default class editUser extends React.Component {
           } 
         axios.post('http://localhost:4000/users/update/'+this.props.match.params.id, obj)
             .then(res => console.log(res.data));
+        
 
-        this.props.history.push('/');
+            document.querySelector('.alert').classList.remove('hide');
+            document.querySelector('.alert').classList.add('show');
+        setTimeout(()=>{this.props.history.push('/');},1000);
     }
 
     render() {
         return (
+            
             <div>
+              <div className="alert alert-success hide" role="alert">User Updated</div>
                 <h3>Update User</h3>
                 <form onSubmit={this.onSubmit}>
                 <div className="form-group">
