@@ -12,43 +12,6 @@ code {
     monospace;
 }
 
-.completed{
-  text-decoration: line-through;
-}
-<<<<<<< HEAD
-.alert{
-  opacity: 0;
-}
-
-.fadeIn{
-  transition:opacity 0.5s ease-in-out;
-  animation: fadeIn 1s 1 forwards;
-}
-@keyframes fadeIn{
-   from{
-       opacity: 1;
-   }
-   to{
-      opacity:0;
-   }
-}
-
-.fadeOut{
-  transition:opacity 0.5s ease-in-out;
-  animation: fadeOut 1s 1 forwards;
-}
-@keyframes fadeOut{
-   from{
-       opacity: 0;
-   }
-   to{
-      opacity:1;
-   }
-}
-
-
-=======
-
 .hide{
   opacity: 0;
   transition: all 0.5s ease-in-out;
@@ -56,4 +19,3 @@ code {
 .show{
   opacity: 1;
 }
->>>>>>> feature2
