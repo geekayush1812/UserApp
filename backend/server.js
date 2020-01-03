@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const cors = require('cors');
+const bcrypt=require('bcryptjs');
 const mongoose = require('mongoose');
 const userRoutes = express.Router();
 const PORT = 4000;
@@ -35,8 +36,15 @@ userRoutes.route('/:id').get(function(req, res) {
     });
 });
 
-userRoutes.route('/add').post(function(req, res) {
-    let users = new User(req.body);
+userRoutes.route('/add').post(async function(req, res) {
+    let Hpass=await bcrypt.hash(req.body.password,8)
+    let obj={
+        name:req.body.name,
+        email:req.body.email,
+        number:req.body.number,
+        password:Hpass
+    }
+    let users = new User(obj);
     users.save()
         .then(user => {
             res.status(200).json({'User': 'user added successfully'});
