@@ -1,6 +1,9 @@
 import React, {Component} from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import trash from '../assets/delete.svg'
+import edit from '../assets/edit.svg'
+
 
 const User = props => (
     <tr>
@@ -8,7 +11,8 @@ const User = props => (
         <td>{props.user.email}</td>
         <td>{props.user.number}</td>
         <td>
-            <Link to={"/edit/"+props.user._id}>Edit</Link>
+            <Link to={"/edit/"+props.user._id}><img style={{marginRight:10}} src={edit}/></Link>
+            <Link to={"/delete/"+props.user._id}><img src={trash}/></Link>
         </td>
     </tr>
 )

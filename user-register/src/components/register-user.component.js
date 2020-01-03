@@ -69,6 +69,12 @@ export default class registerUser extends React.Component {
       number:91,
       password:''
     });
+    document.querySelector('.alert').classList.remove('hide');
+    document.querySelector('.alert').classList.add('show');
+    setTimeout(()=>{
+      document.querySelector('.alert').classList.remove('show');
+      document.querySelector('.alert').classList.add('hide');
+    },1000);
   }
 
   onCloseSuccess(e){
@@ -79,6 +85,7 @@ export default class registerUser extends React.Component {
   render() {
     return (
       <div style={{ marginTop: 20 }}>
+        <div className="alert alert-success hide" role="alert">User successfully registered</div>
         <h3>Create new User</h3>
         <div class="alert alert-success">
           <a 

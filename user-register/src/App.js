@@ -5,6 +5,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import showUser from "./components/show-user.component";
 import editUser from "./components/edit-user.component";
 import registerUser from "./components/register-user.component";
+import deleteUser from './components/delete-user.component'
 
 import logo from "./logo.svg";
 
@@ -39,6 +40,7 @@ class App extends React.Component {
           <Route path="/" exact component={showUser} />
           <Route path="/edit/:id" component={editUser} />
           <Route path="/create" component={registerUser} />
+          <Route path="/delete/:id" component={deleteUser} />
         </div>
       </Router>
     );
