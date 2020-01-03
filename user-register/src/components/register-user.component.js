@@ -87,18 +87,6 @@ export default class registerUser extends React.Component {
       <div style={{ marginTop: 20 }}>
         <div className="alert alert-success hide" role="alert">User successfully registered</div>
         <h3>Create new User</h3>
-        <div class="alert alert-success">
-          <a 
-          href="#" 
-          class="close"
-          data-dismiss="alert"
-          aria-label="close"
-          onClick={this.onCloseSuccess}
-          >
-            &times;
-          </a>
-          <strong>Success!</strong>
-        </div>
         <form onSubmit={this.onSubmit}>
           <div className="form-group">
             <label>Name</label>
